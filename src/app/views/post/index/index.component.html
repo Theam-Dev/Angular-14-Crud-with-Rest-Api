@@ -1,0 +1,24 @@
+<h4>Angular Crud</h4>
+<hr />
+<a class="btn btn-primary" [routerLink]="['/post/create']">Create</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of resData">
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.body }}</td>
+      <td>
+        <a routerLink="/post/edit/{{ item.id }}" class="btn btn-primary btn-sm">edit</a> | 
+        <button type="button" class="btn btn-danger btn-sm" (click)="delete(item.id)"> delete </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
